@@ -5,18 +5,19 @@
   
 
   
-  <title>这是我的马</title>
+  <title>Java的封装和继承 | 这是我的马</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个乱七八糟的地方">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是我的马">
-<meta property="og:url" content="http://whefock.github.io/index.html">
+  <meta name="description" content="Java 是面向对象的高级编程语言，类和对象是 Java 程序的构成核心。围绕着 Java 类和 Java 对象，有三大基本特性：封装是 Java 类的编写规范、继承是类与类之间联系的一种形式、而多态为系统组件或模块之间解耦提供了解决方案。这里先说封装和继承。 封装核心思想就是“隐藏细节”、“数据安全”：将对象不需要让外界访问的成员变量和方法私有化，只提供符合开发者意愿的公有方法来访问这些数据和逻">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的封装和继承">
+<meta property="og:url" content="http://whefock.github.io/2018/09/20/Java的封装和继承/index.html">
 <meta property="og:site_name" content="这是我的马">
-<meta property="og:description" content="一个乱七八糟的地方">
+<meta property="og:description" content="Java 是面向对象的高级编程语言，类和对象是 Java 程序的构成核心。围绕着 Java 类和 Java 对象，有三大基本特性：封装是 Java 类的编写规范、继承是类与类之间联系的一种形式、而多态为系统组件或模块之间解耦提供了解决方案。这里先说封装和继承。 封装核心思想就是“隐藏细节”、“数据安全”：将对象不需要让外界访问的成员变量和方法私有化，只提供符合开发者意愿的公有方法来访问这些数据和逻">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-20T13:19:05.139Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是我的马">
-<meta name="twitter:description" content="一个乱七八糟的地方">
+<meta name="twitter:title" content="Java的封装和继承">
+<meta name="twitter:description" content="Java 是面向对象的高级编程语言，类和对象是 Java 程序的构成核心。围绕着 Java 类和 Java 对象，有三大基本特性：封装是 Java 类的编写规范、继承是类与类之间联系的一种形式、而多态为系统组件或模块之间解耦提供了解决方案。这里先说封装和继承。 封装核心思想就是“隐藏细节”、“数据安全”：将对象不需要让外界访问的成员变量和方法私有化，只提供符合开发者意愿的公有方法来访问这些数据和逻">
   
     <link rel="alternate" href="/atom.xml" title="这是我的马" type="application/atom+xml">
   
@@ -67,9 +68,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Java的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java的封装和继承" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/20/Java的封装和继承/" class="article-date">
   <time datetime="2018-09-20T12:12:10.000Z" itemprop="datePublished">2018-09-20</time>
@@ -82,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/20/Java的封装和继承/">Java的封装和继承</a>
+    <h1 class="article-title" itemprop="name">
+      Java的封装和继承
     </h1>
   
 
@@ -152,191 +151,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Java基础语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/05/Java基础语法/" class="article-date">
-  <time datetime="2018-09-05T09:01:11.965Z" itemprop="datePublished">2018-09-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: Java基础语法<br>date: 2018-09-05 17:01:11<br>tags:<br>一个Java程序可以认为是一系列对象的集合，而这些对象通过调用彼此的方法来协同工作。下面简要介绍下类、对象、方法和实例变量的概念。</p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
-<li>Java程序的所有代码都是大小写敏感的。</li>
-<li>对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass 。</li>
-<li>所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。</li>
-<li>文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记Java是大小写敏感的），文件名的后缀为.java。（如果文件名和类名不相同则会导致编译错误）。</li>
-<li>所有的Java 程序由public static void main(String []args)方法开始执行。</li>
-</ul>
-<h2 id="Java修饰符"><a href="#Java修饰符" class="headerlink" title="Java修饰符"></a>Java修饰符</h2><ul>
-<li>访问控制修饰符 : default, public , protected, private</li>
-<li>非访问控制修饰符 : final, abstract, strictfp</li>
-</ul>
-<h2 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h2><h3 id="表达式就是计算过程"><a href="#表达式就是计算过程" class="headerlink" title="表达式就是计算过程"></a>表达式就是计算过程</h3><ul>
-<li>例如：“1 + 2”, “3 / 5”, “3 &gt; 5”, “1 == 2”</li>
-<li>每个表达式都有⼀个返回值</li>
-</ul>
-<h3 id="⽅法调⽤"><a href="#⽅法调⽤" class="headerlink" title="⽅法调⽤"></a>⽅法调⽤</h3><ul>
-<li>“sqrt(1)”, “dog.walk()”</li>
-<li>⽅法调⽤可以有返回值</li>
-<li>⽅法调⽤也可以没有返回值 (或者说是返回值为空 void)</li>
-</ul>
-<h3 id="表达式和语句-1"><a href="#表达式和语句-1" class="headerlink" title="表达式和语句"></a>表达式和语句</h3><ul>
-<li>都以 “;” 表示结束</li>
-</ul>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
-<li>变量是对⼀个java对象的引⽤</li>
-<li>声明⼀个变量时候需要指定其类型, 表示它可以引⽤的对象类<br>型</li>
-<li>“int a;” “long b;” “String str;”（int .long.String都是数据类型）</li>
-<li>赋值是把⼀个对象绑定到⼀个变量, 反过来说, 是让⼀个变量引<br>⽤到⼀个对象</li>
-</ul>
-<h2 id="逻辑控制语句"><a href="#逻辑控制语句" class="headerlink" title="逻辑控制语句"></a>逻辑控制语句</h2><ul>
-<li>if<br>   if (condition) { action; }</li>
-<li>if … else …<br>   if (condition) { action1; } else { action2; }</li>
-<li>代码块<br>   使⽤ “{}” 包括起来的单个或者多个语句或表达式</li>
-</ul>
-<h2 id="循环和控制语句"><a href="#循环和控制语句" class="headerlink" title="循环和控制语句"></a>循环和控制语句</h2><ul>
-<li>for<br>   for (initial; condition; iteration) {}<br>   for (T iterator : Collection<t>) {} </t></li>
-<li>while<br>   while (condition) {}</li>
-<li>执⾏控制语句<br>   return &lt;返回值&gt;: 从⽅法中返回<br>   break: 退出当前循环<br>   throw: 抛出异常</li>
-<li>构造语句<br>   new：生成一个对象</li>
-</ul>
-<h2 id="JAVA类型模型"><a href="#JAVA类型模型" class="headerlink" title="JAVA类型模型"></a>JAVA类型模型</h2><ul>
-<li>类：类是⼀个模板，它描述⼀类对象的⾏为和状态</li>
-<li>对象：对象是类的⼀个实例，有具体的状态</li>
-<li>⽅法：类中定义的该类的实例对象所具有的⾏为</li>
-<li>静态⽅法: ⾪属于类本身的⽅法</li>
-<li>Java⾥的常量和变量都可以对应于⼀个对象，这个对象的⾏为和具有的<br>属性是由类来定义的</li>
-<li>Java程序的基本结构就是⼀系列类的定义，类之间的关系和具体类的对<br>象之间的互相操作</li>
-</ul>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ul>
-<li>类是⼀个模板，它描述⼀类对象的⾏为和状态</li>
-<li>语义上表达的是⼀类实体(对象)的抽象</li>
-<li>在Java中的惯例是⼀个⽂件中存放⼀个public类</li>
-</ul>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
-<li>对象：对象是类的⼀个实例</li>
-<li>语义上是表达⼀个java类的实体</li>
-<li>对象是⼀般情况下Java语⾔⾥的”⼀等公⺠”</li>
-<li>对象可以赋值到⼀个变量</li>
-<li>对象是通过new语句进⾏创建</li>
-</ul>
-<h3 id="方法和成员变量"><a href="#方法和成员变量" class="headerlink" title="方法和成员变量"></a>方法和成员变量</h3><ul>
-<li>⽅法：类中定义的该类的实例对象所具有的⾏为</li>
-<li>静态⽅法: ⾪属于类本身的⽅法</li>
-<li>&lt;返回类型&gt; ⽅法名(&lt;参数类型&gt; 参数名, …) {代码; return &lt;返回值&gt;;}</li>
-<li>⼀个⽅法由 “⽅法名 + 参数类型” 确定</li>
-<li>相同⽅法名,不同参数类型, 是不同的⽅法 (重载override)</li>
-<li>成员变量即对象或类中的变量, 其作⽤域在类中,或对象中</li>
-<li>可以⽤修饰符控制⽅法和成员变量的作⽤域</li>
-</ul>
+  
+    <a href="/2018/09/05/Java基础语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://whefock.github.io/2018/09/05/Java基础语法/" data-id="cjmaltcsl00021ov3qkfyatwf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-PSG-LGD" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/31/PSG-LGD/" class="article-date">
-  <time datetime="2018-08-31T09:22:51.000Z" itemprop="datePublished">2018-08-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/PSG-LGD/">PSG.LGD</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>童话故事很美好，只可惜在里面当了配角。FLY，你后悔吗？</p>
-<h2 id="Ti9"><a href="#Ti9" class="headerlink" title="Ti9"></a>Ti9</h2><p>什么都别多说了。在上海把冠军盾拿回来，再把你的故事讲给大家听。<br>废物皮鞋</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://whefock.github.io/2018/08/31/PSG-LGD/" data-id="cjmaltcsh00011ov3t5puzlzm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/30/hello-world/" class="article-date">
-  <time datetime="2018-08-30T08:28:20.253Z" itemprop="datePublished">2018-08-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://whefock.github.io/2018/08/30/hello-world/" data-id="cjmaltcsn00031ov3km43egdn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
