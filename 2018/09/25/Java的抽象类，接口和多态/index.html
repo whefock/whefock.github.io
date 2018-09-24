@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java的抽象类，接口和多态 | 这是我的马</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象编程有三大特性：封装、继承、多态。前面已经大概基本了解了封装和继承。封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。所以剩下来的部分，那么什么是多态呢？在此之前再了解两个重要概念。抽象类和接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的抽象类，接口和多态">
+<meta property="og:url" content="http://whefock.github.io/2018/09/25/Java的抽象类，接口和多态/index.html">
+<meta property="og:site_name" content="这是我的马">
+<meta property="og:description" content="面向对象编程有三大特性：封装、继承、多态。前面已经大概基本了解了封装和继承。封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。所以剩下来的部分，那么什么是多态呢？在此之前再了解两个重要概念。抽象类和接口">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-24T21:55:13.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java的抽象类，接口和多态">
+<meta name="twitter:description" content="面向对象编程有三大特性：封装、继承、多态。前面已经大概基本了解了封装和继承。封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。所以剩下来的部分，那么什么是多态呢？在此之前再了解两个重要概念。抽象类和接口">
+  
+    <link rel="alternate" href="/atom.xml" title="这是我的马" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">这是我的马</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">this is my house(horse)</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://whefock.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java的抽象类，接口和多态" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/25/Java的抽象类，接口和多态/" class="article-date">
+  <time datetime="2018-09-24T18:28:13.000Z" itemprop="datePublished">2018-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java的抽象类，接口和多态
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面向对象编程有三大特性：封装、继承、多态。前面已经大概基本了解了封装和继承。<br>封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。<br>继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。所以剩下来的部分，那么什么是多态呢？在此之前再了解两个重要概念。<br>抽象类和接口</p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>简单来说抽象类就是普通类前有一个abstract关键字进行修饰，为什么要用abstract修饰，因为这个类中会一般含有抽象方法。接下来该是，什么是抽象方法？<br>抽象方法就是一种特殊的方法，一种只有声明，没有具体的实现的特殊方法。抽象方法同样用abstract修饰。例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> public abstract <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  public abstract B();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>A就是一个抽象类，B就是一个抽象方法。抽象类和抽象方法都不能被实例化，抽象类必须被继承才能被使用，同样抽象方法必须被重写才能有实现才有意义。<br>所以可以总结抽象类的目的就是用来被继承，必然会用于定义子类。包含抽象方法的类称为抽象类，但并不意味着抽象类中只能有抽象方法，它和普通类一样，同样可以拥有成员变量和普通的成员方法。注意，抽象类和普通类的主要有三点区别：</p>
+<ul>
+<li><p>抽象方法必须为public或者protected（因为如果为private，则不能被子类继承，子类便无法实现该方法），缺省情况下默认为public。</p>
+</li>
+<li><p>抽象类不能用来创建对象；</p>
+</li>
+<li><p>如果一个类继承于一个抽象类，则子类必须实现父类的抽象方法。如果子类没有实现父类的抽象方法，则必须将子类也定义为为abstract类。<br>在其他方面，抽象类和普通的类并没有区别，成员变量、成员⽅法和构造⽅法的访问⽅式和普通类⼀样。</p>
+</li>
+</ul>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>上面解释了什么是抽象方法。接⼝其实就是⼀系列抽象⽅法的集合。这个集合所含的抽象方法它是对行为的抽象。接口的定义用interface。<br>例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    public interface C&#123;</span><br><span class="line">    <span class="keyword">void</span> D();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这就定义了一个C接口和接口拥有一个方法D，D一般是对象行为的特性。接口中可以含有 变量和方法。但是要注意，接口中的变量会被隐式地指定为public static final变量（并且只能是public static final变量，用private修饰会报编译错误），<br>而方法会被隐式地指定为public abstract方法且只能是public abstract方法（用其他关键字，比如private、protected、static、 final等修饰会报编译错误），<br>所以方法D其实全写是 “public abstract void D():” 。因为接口里都是抽象方法，所以接口里的所有方法都不能有实例。类通过关键字 implements 表达实现⼀个接⼝, 从⽽声明这个类具有接⼝定义的属性<br>和⾏为。<br>例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   public <span class="class"><span class="keyword">class</span> <span class="title">E</span> <span class="title">implement</span> <span class="title">C</span></span>&#123;</span><br><span class="line">     @override</span><br><span class="line">      public <span class="keyword">void</span> D()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面就是E类实现了C接口，然后重写C接口中的方法D。而且同一个类可以同时实现多个接口。</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>准备工作做完了终于要说到多态了。何为多态，从书面概念来说就是多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行<br>期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这<br>样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以<br>选择多个运行状态，这就是多态性。而多态的具体实现就要依靠前面所介绍的<code>抽象类</code>和<code>接口</code>。文字太多不好理解看实例。<br>例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个News类</span></span><br><span class="line"> public <span class="class"><span class="keyword">class</span> <span class="title">News</span> </span>&#123;</span><br><span class="line">    protected <span class="built_in">String</span> title;</span><br><span class="line">    protected <span class="built_in">String</span> coentent;</span><br><span class="line">    public News(<span class="built_in">String</span> title, <span class="built_in">String</span> coentent)&#123;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">        <span class="keyword">this</span>.coentent = coentent; &#125;</span><br><span class="line">    public <span class="built_in">String</span> getCoentent() &#123;</span><br><span class="line">        <span class="keyword">return</span> coentent;&#125;</span><br><span class="line">    public <span class="built_in">String</span> getTitle() &#123;</span><br><span class="line">        <span class="keyword">return</span> title;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个NewsReader抽象类，抽象类拥有一个返回值为News的抽象方法readnews</span></span><br><span class="line">  public abstract <span class="class"><span class="keyword">class</span> <span class="title">NewsReader</span></span>&#123;</span><br><span class="line">  public abstract News readnews();</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">//一个继承NewsReader的子类UrlNewsReader</span></span><br><span class="line">  public <span class="class"><span class="keyword">class</span> <span class="title">UrlNewsReader</span> <span class="keyword">extends</span> <span class="title">NewsReader</span></span>&#123;</span><br><span class="line">  @override                             <span class="comment">//重写父类中的抽象方法readnews</span></span><br><span class="line">   public News readnews()&#123;          </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> News(<span class="string">"url"</span>,<span class="string">"urlcontent"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//另一个继承NewsReader的子类VideoNewsReader</span></span><br><span class="line">  public <span class="class"><span class="keyword">class</span> <span class="title">VideoNewsReader</span></span>&#123;</span><br><span class="line">  @override</span><br><span class="line">   public News readnews()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> News(<span class="string">"video"</span>,<span class="string">"videocontent"</span>)&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//接口Displayable.</span></span><br><span class="line">  public interpublic interface Displayable &#123;</span><br><span class="line">    <span class="keyword">void</span> display();          <span class="comment">//拥有一个display的抽象方法，如果有类要实现display则可implement此接口</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">//类News都应该是可display的所以可实现接口Displayabel。故该完善为</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="title">implement</span> <span class="title">Displayable</span> </span>&#123;</span><br><span class="line">    protected <span class="built_in">String</span> title;</span><br><span class="line">    protected <span class="built_in">String</span> coentent;</span><br><span class="line">    public News(<span class="built_in">String</span> title, <span class="built_in">String</span> coentent)&#123;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">        <span class="keyword">this</span>.coentent = coentent; &#125;</span><br><span class="line">    public <span class="built_in">String</span> getCoentent() &#123;</span><br><span class="line">        <span class="keyword">return</span> coentent;&#125;</span><br><span class="line">    public <span class="built_in">String</span> getTitle() &#123;</span><br><span class="line">        <span class="keyword">return</span> title;&#125;</span><br><span class="line">    @Override</span><br><span class="line">    public <span class="keyword">void</span> display()&#123;</span><br><span class="line">        System.out.println( title + <span class="string">"\n"</span> + coentent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//多态</span></span><br><span class="line">public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args)&#123;</span><br><span class="line">    NewsReader news1= <span class="keyword">new</span> UrlNewsReader();</span><br><span class="line">    news1.readnews().display;     <span class="comment">//因为指向子类UrlNewsReader，所以news1调用方法readnews会调用子类中重写后的方法readenews。readnews返回的是一个News，所以可以调用News类中实现的接口Displayable中的方法display。</span></span><br><span class="line">    </span><br><span class="line">   NewsReader news2 = <span class="keyword">new</span> ViedoNewsReader();</span><br><span class="line">   news2.readnews().display;                <span class="comment">//同上</span></span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果:</p>
+<p>url</p>
+<p>urlcontent</p>
+<p>video</p>
+<p>videocontent</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实，没什么好总结的。以上就是抽象类，接口，以及java三大特性值一的多态的基础概念。到具体运用中会更加复杂！<br>但是，就写这么一篇基础的也花了我2个小时！！这个总结其实想写点随笔。写到一个没人会看到的地方。（除了老师？）不过也一定不会在意了。</p>
+<p>今天是中秋节，中午难得回了趟家吃了饭。回家的时候居然遇到了很多年不见不联系的小学同学。成都这么大，居然能搬到了同一个小区。<br>虽然很多年不见，也没有忘记对方名字。我们站在小区的我住那一栋小区的楼下，我找不到话说我更不想问她有没有结婚的事。倒不是因为别的，<br>大学毕业这两三年，陆陆续续有周围同龄人都结婚了，但我总觉得在现在这个年龄，结婚是一件很恐怖的事。我们的国情里从小到大连对待感情都还没好好体验就要开始面对婚姻了。多少人是被赶鸭子上架的。<br>还好她开始聊起了小时候的事，我点的烟早就抽完了，但我们还聊了大概20多分钟。其中大部分的事从她的嘴里说出来但我也找不到一丝记忆碎片了，但我很认真的听着，仿佛在听世界上最好听的故事。因为，总归有些事我也想起来了。回想静悄悄的时光，终不似，少年游。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://whefock.github.io/2018/09/25/Java的抽象类，接口和多态/" data-id="cjmgts9qi0000x8v3tsetleji" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/20/Java的封装和继承/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java的封装和继承</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/25/Java的抽象类，接口和多态/">Java的抽象类，接口和多态</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/20/Java的封装和继承/">Java的封装和继承</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/05/Java基础语法/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/31/PSG-LGD/">PSG.LGD</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/30/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 XiaoM<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
